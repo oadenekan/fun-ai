@@ -1,28 +1,43 @@
-import React from 'react';
+import React, { useState } from "react";
 
-const CForm = () => {
+const CForm = ({ addEntries }) => {
+  const [inputForm, setInputForm] = useState();
+
+  const handleInput = e => {
+    addEntries(inputForm);
+    setInputForm("");
+  };
   return (
     <div className="containers mt-5">
-      <form id="textarea-form">
+      <form>
         <div className="row">
-          <h2 lassName="col"><strong>Fun With AI</strong></h2>
+          <h2 className="col">
+            <strong>Fun With AI</strong>
+          </h2>
         </div>
         <div>
-          <p class="first-paragraph mt-3">Enter prompt</p>
+          <p className="first-paragraph mt-3">Enter prompt</p>
         </div>
         <div>
-          <textarea rows="8" className="col-12 prompt-words" name="words"></textarea>
+          <textarea
+            rows="8"
+            className="col-12"
+            name="inputForm"
+            onChange={e => setInputForm(e.target.value)}
+            value={inputForm}
+          />
         </div>
         <div className="">
-          <button className="btn btn-primary mt-1 col-3 offset-9" type="button" onclick="aiRequest(prompt)">Submit</button>
+          <button
+            className="btn btn-primary mt-1 right"
+            type="button"
+            onClick={handleInput}
+          >
+            Submit
+          </button>
         </div>
-        <br/><br/><br/>
-        <div>
-          <h5><strong>Responses</strong></h5>
-        </div>
-        <div className="responses" id="new-response"></div>
       </form>
     </div>
-  )
-}
+  );
+};
 export default CForm;
