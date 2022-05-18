@@ -40,7 +40,6 @@ const App = props => {
       answer = answer.choices[0].text;
 
       const entries = [{ entry, answer }, ...allentries];
-      console.log(entries, 'entries')
       setAllEntries(entries);
       localStorage.setItem("data", JSON.stringify(entries));
     })();
