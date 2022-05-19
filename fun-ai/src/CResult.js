@@ -13,12 +13,12 @@ function CResult(props) {
           {props.result.map((res, index) => (
             <li key={index}>
               <div className="responses row">
-                  <span className="col-2">Prompt:</span>
-                  <span className="col-10">{res.entry}</span>
+                  <span className="col-sm-2">Prompt:</span>
+                  <span className="col-sm-10">{res.entry}</span>
               </div>
               <div className="responses row">
-                <span className="col-2">Response:</span>
-                <span className="col-10">{res.answer}</span>
+                <span className="col-sm-2">Response:</span>
+                <span className="col-sm-10">{res.answer}</span>
               </div>
             </li>
           ))}
